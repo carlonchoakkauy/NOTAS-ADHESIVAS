@@ -1,0 +1,55 @@
+:root{
+  --frame:#b5e61d;--left:#22b14c;--board:#ffc90e;--ink:#1b1b1b;--field:#f2f2f2;--bar:#fff200;--card-ink:#fff;
+  --c0:#009fe3;--c1:#6f93c0;--c2:#b97a57;--c3:#a349a4;--c4:#e0542f;--c5:#2d8a6e;
+}
+@media (prefers-color-scheme:dark){
+  :root{--frame:#3d5a0f;--left:#146b2e;--board:#a77d06;--ink:#f3f3f3;--field:#2b2b2b;--bar:#6f6a00}
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--frame);color:var(--ink);font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;min-height:100vh;padding:14px}
+
+.app{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:minmax(260px,5fr) 7fr;gap:14px;border:3px solid #111;padding:14px;border-radius:6px}
+section{border:3px solid #111;border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.left{background:var(--left)}
+.right{background:var(--board)}
+h2{margin:0;font-size:1.1rem}
+label{font-size:.85rem;font-weight:700}
+
+input{font:inherit;color:var(--ink);background:var(--field);border:3px solid #111;border-radius:2px;padding:9px 10px;width:100%;min-width:0}
+input:focus-visible,button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+
+/* Monto + selector de moneda */
+.row{display:flex}
+.row input{border-right:0}
+.seg{display:flex;border:3px solid #111}
+.seg button{border:0;border-left:3px solid #111;background:var(--field);color:var(--ink);font:inherit;font-weight:700;padding:0 14px;cursor:pointer}
+.seg button:first-child{border-left:0}
+.seg button[aria-pressed="true"]{background:#111;color:#fff}
+
+/* Resultado */
+.result{background:var(--field);color:var(--ink);border:3px solid #111;padding:12px;display:flex;flex-direction:column;gap:10px}
+.big{font-size:1.8rem;font-weight:700}
+.add{background:#111;color:#fff;border:0;font:inherit;font-weight:700;padding:10px;cursor:pointer;letter-spacing:.04em}
+.add:hover{background:#333}
+
+/* Cotizaciones */
+details{font-size:.85rem}
+summary{cursor:pointer;font-weight:700}
+details .rates{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;align-items:center;margin-top:8px}
+
+/* Pizarrón */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;flex:1;align-content:start;min-height:200px}
+.card{position:relative;border:3px solid #111;border-radius:16px;padding:14px 14px 12px;color:var(--card-ink);min-height:120px;display:flex;flex-direction:column;gap:4px;word-break:break-word}
+.card b{font-size:1.05rem}
+.card button{position:absolute;top:6px;right:8px;background:none;border:0;color:inherit;font-size:1.2rem;cursor:pointer;line-height:1}
+.empty{grid-column:1/-1;font-weight:700;opacity:.8}
+
+/* Barra de nota personalizada */
+.bar{background:var(--bar);border:3px solid #111;padding:8px;display:flex;gap:8px}
+.bar input{flex:1;background:transparent;border:0;padding:6px}
+.bar .add{padding:6px 12px}
+
+@media (max-width:720px){
+  .app{grid-template-columns:1fr}
+}

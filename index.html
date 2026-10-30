@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notitas con conversor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <section class="left" aria-label="Conversor">
+    <h2>Convertir pesos</h2>
+    <div>
+      <label for="nombre">Nombre de la notita</label>
+      <input id="nombre" placeholder="Vacaciones" autocomplete="off">
+    </div>
+    <div>
+      <label for="monto">Monto en pesos</label>
+      <div class="row">
+        <input id="monto" type="number" inputmode="decimal" min="0" value="20000">
+        <div class="seg" role="group" aria-label="Moneda destino">
+          <button id="usd" aria-pressed="true">U$S</button>
+          <button id="eur" aria-pressed="false">€</button>
+        </div>
+      </div>
+    </div>
+    <div class="result" aria-live="polite">
+      <div class="big" id="res">—</div>
+      <button class="add" id="addConv">AGREGAR</button>
+    </div>
+    <details>
+      <summary>Cotizaciones (editables)</summary>
+      <div class="rates">
+        <label for="rUsd">Pesos por U$S</label><input id="rUsd" type="number" min="1" value="1538">
+        <label for="rEur">Pesos por €</label><input id="rEur" type="number" min="1" value="1800">
+      </div>
+    </details>
+  </section>
+
+  <section class="right" aria-label="Pizarrón">
+    <h2>Pizarrón</h2>
+    <div class="grid" id="board"></div>
+    <form class="bar" id="custom" onsubmit="return false">
+      <input id="texto" placeholder="Comprar galletas" aria-label="Nota personalizada" autocomplete="off">
+      <button class="add" id="addTxt" type="button">AGREGAR</button>
+    </form>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
